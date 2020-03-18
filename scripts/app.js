@@ -17,6 +17,12 @@ const updateData = data => {
 </div>
 `;
 
+  let timeSrc = weatherCondition.IsDayTime ? `img/day.svg` : `img/night.svg`;
+  time.setAttribute('src', timeSrc);
+
+  let iconSrc = `img/icons/${weatherCondition.WeatherIcon}.svg`;
+  icon.setAttribute('src', iconSrc);
+
   card.classList.remove('d-none');
 };
 
