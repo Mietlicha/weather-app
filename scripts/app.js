@@ -1,6 +1,8 @@
 const form = document.querySelector('.change-location');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
+const time = document.querySelector('.daytime');
+const icon = document.querySelector('.icon img');
 
 const updateData = data => {
   const { cityDetails, weatherCondition } = data;
