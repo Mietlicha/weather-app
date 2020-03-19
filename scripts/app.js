@@ -4,6 +4,10 @@ const details = document.querySelector('.details');
 const time = document.querySelector('.daytime');
 const icon = document.querySelector('.icon img');
 
+const saveLocalStorage = city => {
+  localStorage.setItem('city', city);
+};
+
 const updateData = data => {
   const { cityDetails, weatherCondition } = data;
 
@@ -17,10 +21,10 @@ const updateData = data => {
 </div>
 `;
 
-  let timeSrc = weatherCondition.IsDayTime ? `img/day.svg` : `img/night.svg`;
+  const timeSrc = weatherCondition.IsDayTime ? `img/day.svg` : `img/night.svg`;
   time.setAttribute('src', timeSrc);
 
-  let iconSrc = `img/icons/${weatherCondition.WeatherIcon}.svg`;
+  const iconSrc = `img/icons/${weatherCondition.WeatherIcon}.svg`;
   icon.setAttribute('src', iconSrc);
 
   card.classList.remove('d-none');
@@ -40,8 +44,15 @@ form.addEventListener('submit', e => {
   e.preventDefault();
 
   const city = form.city.value.trim();
+  saveLocalStorage(city);
 
   updateUi(city)
     .then(data => updateData(data))
     .catch(err => console.log(err));
 });
+
+if (localStorage.getItem('city')) {
+  updateUi(localStorage.getItem('city'))
+    .then(data => updateData(data))
+    .catch(err => console.log(err));
+}

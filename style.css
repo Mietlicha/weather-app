@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #eeedec;
+  font-size: 0.8rem;
+}
+
+.container {
+  max-width: 400px;
+}
+
+.icon {
+  border-radius: 50%;
+  position: relative;
+  margin-top: -50px;
+  width: 100px;
+  margin-bottom: 20px;
+}
